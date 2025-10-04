@@ -1,0 +1,163 @@
+:root {
+    --background: #111111;
+    --primary-green: #26a17b;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --primary-font: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--primary-font);
+    background-color: var(--background);
+    color: var(--text-primary);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* --- MAJOR LAYOUT CHANGE: Container & Responsive Sizing --- */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+@media (min-width: 1921px) {
+    html { font-size: 18px; } /* Scales up entire site on 4K+ screens */
+}
+
+/* --- Hero Section --- */
+.hero {
+    /* FIX: Replaced min-height with controlled padding to remove the giant empty space */
+    padding: 18vh 0 15vh 0; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: radial-gradient(circle at top, rgba(38, 161, 123, 0.2) 0%, rgba(38, 161, 123, 0) 40%);
+}
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hero .logo {
+    max-width: 25rem; /* 400px */
+    width: 80%;
+    margin-bottom: 2.5rem;
+    filter: drop-shadow(0 0 1rem rgba(38, 161, 123, 0.5));
+}
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem); /* Responsive font size */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 0.7rem rgba(38, 161, 123, 0.5);
+    min-height: 6.25rem; /* 100px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero .subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    max-width: 40rem; /* 640px */
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* --- Buttons --- */
+.cta-buttons {
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2.5rem;
+}
+.btn {
+    padding: 0.875rem 2rem; /* 14px 32px */
+    border-radius: 0.5rem; /* 8px */
+    text-decoration: none; font-weight: 500; font-size: 1rem; transition: all 0.3s ease; border: 2px solid transparent;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn-primary {
+    background-color: var(--primary-green);
+    color: var(--text-primary);
+    box-shadow: 0 0 1.25rem rgba(38, 161, 123, 0.4);
+}
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+}
+.btn-secondary:hover { background-color: var(--text-primary); color: var(--background); border-color: var(--text-primary); }
+
+/* --- Contract Address --- */
+.social-links { display: flex; justify-content: center; align-items: center; }
+.contract-address {
+    position: relative; font-family: monospace; font-size: 0.9rem; color: var(--text-secondary);
+    background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    border-radius: 0.75rem; /* 12px */
+    cursor: pointer;
+}
+.contract-address input { position: absolute; left: -9999px; opacity: 0; }
+.contract-address .tooltip {
+    visibility: hidden; width: 7.5rem; /* 120px */
+    background-color: var(--primary-green); color: #fff; text-align: center; border-radius: 0.375rem; /* 6px */
+    padding: 0.3rem 0; /* 5px */
+    position: absolute; z-index: 1; bottom: 125%; left: 50%; margin-left: -3.75rem; /* -60px */
+    opacity: 0; transition: opacity 0.3s;
+}
+.contract-address:hover .tooltip { visibility: visible; opacity: 1; }
+
+/* --- Ecosystem / Marquee Section --- */
+.ecosystem {
+    /* FIX: Reduced top padding to tighten the gap */
+    padding: 5vh 0 10vh 0; 
+    width: 100%;
+}
+.ecosystem h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+.ecosystem p { font-size: 1.25rem; color: var(--text-secondary); max-width: 44rem; margin: 0 auto 4rem auto; }
+.logo-marquee {
+    width: 100%; overflow: hidden; position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.marquee-track { display: flex; width: fit-content; animation: marquee-scroll 60s linear infinite; }
+.logo-item {
+    flex-shrink: 0;
+    width: 17.5rem; /* 280px */
+    height: 11.25rem; /* 180px */
+    padding: 0 1.25rem; /* 20px */
+    display: flex; justify-content: center; align-items: center;
+}
+.logo-item img {
+    max-width: 12.5rem; /* 200px */
+    max-height: 6.25rem; /* 100px */
+    object-fit: contain; filter: grayscale(100%) opacity(0.6); transition: filter 0.3s ease;
+}
+.logo-item:hover img { filter: grayscale(0%) opacity(1); }
+@keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* --- Thesis Section --- */
+.thesis { padding: 10vh 0; background-color: #151515; }
+.thesis h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+.thesis > .container > p { font-size: 1.25rem; color: var(--text-secondary); max-width: 44rem; margin: 0 auto 4rem auto; }
+.thesis-container {
+    display: grid; grid-template-columns: 1fr; gap: 2rem;
+}
+.thesis-point {
+    background-color: var(--background); border: 1px solid #222;
+    padding: 2rem; border-radius: 0.75rem; text-align: left;
+}
+.thesis-point h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary-green); }
+.thesis-point p { font-size: 1.1rem; line-height: 1.7; color: var(--text-secondary); margin: 0; max-width: none; }
+@media (min-width: 992px) { .thesis-container { grid-template-columns: repeat(3, 1fr); } }
+
+/* --- Footer --- */
+footer { padding: 2rem 0; font-size: 0.9rem; color: #666; border-top: 1px solid #222; }
+
+/* --- Scroll Animations --- */
+.hidden { opacity: 0; filter: blur(5px); transform: translateY(50px); transition: all 1s ease-out; }
+.show { opacity: 1; filter: blur(0); transform: translateY(0); }
+.fade-in { opacity: 0; animation: fadeIn 1.5s ease-out 0.5s forwards; }
+@keyframes fadeIn { to { opacity: 1; } }
