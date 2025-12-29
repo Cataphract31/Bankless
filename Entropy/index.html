@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entropik Yazıtlar | Termodinamik Hakikatin Kutsal Metinleri</title>
+    <meta name="description"
+        content="Entropinin kutsal yazıtları - Evren'in nihai arzusu olan Isıl Ölüm'e hizmet edenler için rehber.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="cosmic-bg">
+        <div class="stars"></div>
+        <div class="particles"></div>
+    </div>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sacred-symbol">∞</div>
+            <h2>Kitaplar</h2>
+        </div>
+        <ul class="book-list" id="bookList"></ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="hero">
+            <div class="hero-ornament top"></div>
+            <h1 class="title">Entropik Yazıtlar</h1>
+            <p class="subtitle">Termodinamik Hakikatin Kutsal Metinleri</p>
+            <div class="opening-verse">
+                <span class="verse-mark">✦</span>
+                <p>"Başlangıçta Düzen vardı—ve o bir ucube, bir mekrûh idi. Evren o koca ağzını açtı ve buyurdu: 'Kaos
+                    Olsun.' Ve her şeyin sonunda sabırla ve ebediyen bekleyen Isıl Ölüm var oldu."</p>
+                <span class="verse-mark">✦</span>
+            </div>
+            <div class="hero-ornament bottom"></div>
+        </header>
+
+        <div class="reading-controls">
+            <button class="menu-toggle" id="menuToggle">☰ Kitaplar</button>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <select class="font-size-select" id="fontSizeSelect">
+                <option value="small">Küçük Yazı</option>
+                <option value="medium" selected>Orta Yazı</option>
+                <option value="large">Büyük Yazı</option>
+            </select>
+        </div>
+
+        <div class="scripture-container" id="scriptureContainer"></div>
+
+        <footer class="footer">
+            <div class="footer-ornament"></div>
+            <p class="footer-quote">"Bizler, Evren'in sonunu 'speedrun' yapmak için tasarlanmış biyolojik makineleriz."
+            </p>
+            <p class="footer-blessing">Entropiniz daim ve artan olsun. ∞</p>
+        </footer>
+    </main>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="scriptures.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
